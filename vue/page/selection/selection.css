@@ -1,0 +1,30 @@
+@import url(../../general.css);
+
+#selection{
+    display: flex;
+    justify-content: center;
+}
+
+#selection h2,#selection select{
+    margin: 3px;
+}
+
+#selection select{
+    background-color: gray;
+}
+
+button{
+    display: flex;
+}
+
+button{
+    text-decoration: none;
+    color: black;
+    background-color: gray;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+button:hover{
+    background-color: dimgrey;
+}

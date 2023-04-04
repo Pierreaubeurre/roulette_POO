@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Roulette évaluation
+    </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="vue/page/a_noter/a_noter.css" type="text/css">
+    </script>
+</head>
+
+<body>
+
+    <header>
+
+        <h1>%nom_eval%</h1>
+
+    </header>
+
+    <p>Date de l'évaluation :</p>
+    <p>%date%</p>
+
+    <br>
+    <br>
+    <br>
+
+    <form id="selectionné" method="post">
+
+        <p>Classe :</p>
+        <input type="text" name="classe" value="%classe%">
+        <br>
+        <br>
+
+        <input type="text" name="page" value="a_noter" hidden>
+
+
+
+        <label for="nom">Nom de l'élève :</label>
+        <input type="text" class="detail_eleve" name="nom" value="%nom%" readonly>
+
+        <label for="nom">Prénom de l'élève :</label>
+        <input type="text" class="detail_eleve" name="prenom" value="%prenom%" readonly>
+
+        <label for="nom">Id de l'élève :</label>
+        <input type="text" class="detail_eleve" name="id_eleve" value="%id_eleve%" readonly>
+
+        <div>
+
+            <input type="radio" value="present" name="presence" checked="true">
+            <label for="present">Présent</label>
+
+            <input type="radio" value="absent" name="presence">
+            <label for="absent">Absent</label>
+
+        </div>
+
+        <input type="number" name="note" placeholder="Note">
+
+        <input type="submit" value="Noter l'élève">
+    </form>
+
+    <br>
+    <br>
+    <br>
+
+
+    <h2>Liste des élèves notés</h2>
+
+    <div class="detail">
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">NOM</th>
+                    <th scope="col">PRENOM</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">PRESENCE</th>
+                    <th scope="col">NOTE</th>
+                    <!--<th scope="col">MODIFIER</th>-->
+                </tr>
+            </thead>
+            <tbody id="noté">
+                %eleve_noté%
+            </tbody>
+        </table>
+    </div>
+
+    <div id="separation"></div>
+
+    <h2>Liste des élèves à noter</h2>
+
+    <div class="detail">
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">NOM</th>
+                    <th scope="col">PRENOM</th>
+                    <th scope="col">ID</th>
+                </tr>
+            </thead>
+            <tbody id="pas_noter">
+                %eleve_pas_noté%
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>

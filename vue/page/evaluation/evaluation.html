@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Roulette évaluation
+    </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="vue/page/evaluation/evaluation.css" type="text/css">
+    </script>
+</head>
+
+<body>
+
+    <header>
+
+        <h1>%nom_eval%</h1>
+
+    </header>
+
+    <p>Date de l'évaluation :</p>
+    <p>%date%</p>
+
+
+    <form id="detail_eval" method="post">
+
+        <p>Classe :</p>
+        <input type="text" name="classe" value="%classe%" readonly>
+        <br>
+
+        <input name="nom_evaluation" type="text" value="%nom_eval%" hidden>
+
+        <input type="text" name="id_evaluation" value="%id_evaluation%" hidden>
+
+        <input type="text" name="page" value="a_noter" hidden>
+
+        <input type="submit" value="Tirer au sort">
+
+    </form>
+
+    <br>
+    <br>
+    <br>
+
+    <h2>Liste des élèves à noter</h2>
+
+    <div class="detail">
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">NOM</th>
+                    <th scope="col">PRENOM</th>
+                    <th scope="col">ID</th>
+                </tr>
+            </thead>
+            <tbody id="pas_noter">
+                %eleve%
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
