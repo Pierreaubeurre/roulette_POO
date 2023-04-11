@@ -49,7 +49,7 @@ class evaluation
     {
         $conn = new connection();
         
-        $sth = $conn->prepare('UPDATE Evaluation SET nom_Evaluation = ? WHERE idEvaluation=?');
+        $sth = $conn->prepare('UPDATE Evaluation SET nom_Evaluation = ? WHERE idEvaluation = ?');
         $sth->bind_param('si', $nom, $this->idEvaluation);
         $sth->execute();
 

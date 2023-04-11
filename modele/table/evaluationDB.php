@@ -22,12 +22,20 @@ class evaluationDB
         $this->conn = new connection();//Met l'objet de connexion dans le parametre
     }
 
+    public function selectAll(){
+        $req = "SELECT * FROM Evaluation";
+        $res = $this->conn->query($req);
+
+        return $res;
+    }
+
     public function createEvaluation($nom,$date)
     {
         
         $sth = $this->conn->prepare('INSERT INTO Evaluation (nom_Evaluation,date_Evaluation) VALUES (?,?)');
         $sth->bind_param('ss', $nom,$date);
         $sth->execute();
+
     }
 
     //méthode pour choisir l'id de la dernière évaluation réalisée

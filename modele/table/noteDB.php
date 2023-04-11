@@ -1,7 +1,6 @@
 <?php
-
-include_once("../connexion.php");
-include_once("../entité/note_entité.php");
+include_once("modele/connexion.php");
+include_once("modele/entité/note_entité.php");
 
 class noteDB
 {
@@ -97,6 +96,18 @@ class noteDB
 
 
         return $this->note($sth);
+    }
+
+    public function selectNoteAndEleveFromidEvaluation(int $idEvaluation)
+    {
+
+        $sth = $this->conn->prepare('SELECT nom_eleve,prenom_eleve,classe,absence,resultat_Note,idNote FROM Note INNER JOIN Eleve ON Eleve.idEleve = Note.idEleve WHERE idEvaluation= ?;');
+        $sth->bind_param('i', $idEvaluation);
+        $sth->execute();
+
+        $result = $sth->get_result();
+
+        return $result;
     }
 
     private function note($sth)

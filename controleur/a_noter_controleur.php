@@ -3,7 +3,7 @@ include_once("modele/table/noteDB.php");
 include_once("modele/table/eleveDB.php");
 
 
-include_once("vue/page/a_noter/a_noter_page.php");
+include_once("vue/a_noter/a_noter_vue.php");
 
 class a_noter_controleur
 {
@@ -17,7 +17,7 @@ class a_noter_controleur
         $this->table_note = new noteDB();
         $this->table_eleve = new eleveDB();
 
-        $this->page = new evaluation_page();
+        $this->page = new a_noter_vue();
 
     }
 

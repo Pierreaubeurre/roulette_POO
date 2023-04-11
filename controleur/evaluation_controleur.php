@@ -3,7 +3,7 @@ include_once("modele/table/evaluationDB.php");
 include_once("modele/table/eleveDB.php");
 
 
-include_once("vue/page/evaluation/evaluation_page.php");
+include_once("vue/evaluation/evaluation_vue.php");
 
 class evaluation_controleur
 {
@@ -17,7 +17,7 @@ class evaluation_controleur
         $this->table_evaluation = new evaluationDB();
         $this->table_eleve = new eleveDB();
 
-        $this->page = new evaluation_page();
+        $this->page = new evaluation_vue();
 
     }
 

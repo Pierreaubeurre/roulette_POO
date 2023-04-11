@@ -1,6 +1,6 @@
 <?php
 
-class selection_page
+class selection_vue
 {
     // déclaration des propriétés
     public string $file;//contient le fichier html au fur et à mesure des modifications
@@ -8,7 +8,7 @@ class selection_page
     // déclaration du constructeur
     function __construct()
     {
-        $file=file_get_contents("vue/page/selection/selection.html");
+        $file=file_get_contents("vue/selection/selection.html");
         $this->file=$file;
 
     }

@@ -1,7 +1,8 @@
 <?php
 include_once("modele/table/eleveDB.php");
 
-include_once("vue/page/selection/selection_page.php");
+
+include_once("vue/selection/selection_vue.php");
 
 class selection_controleur
 {
@@ -23,7 +24,7 @@ class selection_controleur
 
     private function vue($classe_dispo)
     {
-        $page = new selection_page();
+        $page = new selection_vue();
         $page->replace_classe($classe_dispo);
         $this->vue=$page->file;
 

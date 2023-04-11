@@ -1,5 +1,5 @@
 <?php
-class evaluation_page
+class a_noter_vue
 {
     // déclaration des propriétés
     public string $file;//contient le fichier html au fur et à mesure des modifications
@@ -7,7 +7,7 @@ class evaluation_page
     // déclaration du constructeur
     function __construct()
     {
-        $file = file_get_contents("vue/page/a_noter/a_noter.html");
+        $file = file_get_contents("vue/a_noter/a_noter.html");
         $this->file=$file;
 
     }
