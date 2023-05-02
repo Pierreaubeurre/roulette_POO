@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Roulette évaluation
+    </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="vue/detail_classe/detail_classe.css" type="text/css">
+    </script>
+</head>
+
+<body>
+
+    <header>
+        
+        <h1>Detail de la classe</h1>
+
+        <form method="get" action="" class="detail">
+            <input type="submit" value="Menu">
+        </form>
+
+    </header>
+
+    <form method="post" action="?page=ajout_eleve" class="detail">
+        <input type="submit" value="Nouvel élève">
+    </form>
+
+        <div class="detail">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">NOM</th>
+                        <th scope="col">PRENOM</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">SUPPRIMER</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    %detail%
+                </tbody>
+            </table>
+        </div>
+
+</body>
+
+</html>

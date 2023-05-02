@@ -13,8 +13,11 @@
     background-color: gray;
 }
 
-button{
+form{
     display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 button{

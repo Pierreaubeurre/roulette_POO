@@ -27,9 +27,9 @@ class liste_evaluation_vue
 
                 $tbody = $tbody .
                     '<td>
-                        <form method="post">
-                            <button name="page" value="visualisation_eval">Voir</button>
-                            <input type="text" name="id_evaluation" value="%id%" hidden="">
+                        <form method="post" action="?page=detail_eval">
+                            <input type="submit" value="Voir">
+                            <input type="hidden" name="id_evaluation" value="%id%">
                         </form>
                     </td>
                     ';

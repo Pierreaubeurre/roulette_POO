@@ -23,7 +23,6 @@ class detail_evaluation_controleur
         $id = $_POST["id_evaluation"];
         $res = $this->table_note->selectNoteAndEleveFromidEvaluation($id);
 
-
         $this->page->replace_detail($res);
 
     }
@@ -31,7 +30,6 @@ class detail_evaluation_controleur
     public function afficher()
     {
         echo ($this->page->file);
-
     }
 
 }

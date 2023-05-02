@@ -23,12 +23,9 @@ class evaluation_controleur
 
     public function créer_evaluation()
     {
-
-        date_default_timezone_set('Europe/Paris');
-        $date = date('d/m/y');
         $nom = $_POST["nom_evaluation"];
 
-        $this->table_evaluation->createEvaluation($nom, $date);
+        $this->table_evaluation->createEvaluation($nom);
 
         //return boolean pour savoir si c'est bon
     }
@@ -80,9 +77,7 @@ class evaluation_controleur
 
     function afficher()
     {
-
         echo ($this->page->file);
-
     }
 
 }

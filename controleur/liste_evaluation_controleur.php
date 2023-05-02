@@ -26,9 +26,7 @@ class liste_evaluation_controleur
 
     public function afficher()
     {
-
         echo ($this->page->file);
-
     }
 
 }

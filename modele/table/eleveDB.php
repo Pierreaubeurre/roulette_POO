@@ -13,99 +13,96 @@ class eleveDB
         $this->conn = new connection(); //Met l'objet de connexion dans le parametre
     }
 
-    public function create(string $nom, string $prenom, string $classe)
+    //méthode pour créer un élève
+    public function createEleve(string $nom, string $prenom, string $classe)
     {
-
         $sth = $this->conn->prepare('INSERT INTO Eleve (nom_Eleve,prenom_Eleve,classe) VALUES (?,?,?)');
         $sth->bind_param('sss', $nom, $prenom, $classe);
         $sth->execute();
     }
 
-    //Méthode pour selectionner les différentes classes présente dans le tableau.
-    function selectDistinctClass()
+    //Méthode pour selectionner les différentes classes présente dans le tableau
+    public function selectDistinctClass()
     {
         $classe = array();
-    
+
         $req = "SELECT DISTINCT classe FROM Eleve";
-    
+
         $res = $this->conn->query($req);
-    
+
         while ($result = $res->fetch_row()) { // extrait chaque ligne une à une
             array_push($classe, $result[0]);
         }
-    
-        return $classe;
 
+
+        return $classe;
     }
 
-    //méthode pour choisir un eleve grâce à une id
-    public function selectEleveById(int $idEleve)
+    //Méthode pour supprimer une classe
+    public function deleteClass(string $classe)
     {
-
-        $sth = $this->conn->prepare('SELECT * FROM Eleve WHERE idEleve = ?');
-        $sth->bind_param('i', $idEleve);
+        $sth = $this->conn->prepare('DELETE FROM Eleve WHERE classe = ?');
+        $sth->bind_param('s', $classe);
         $sth->execute();
-
-
-        return $this->eleve($sth);
     }
 
     //méthode pour choisir une/des eleve grâce à une classe
     public function selectEleveByClass(string $classe)
     {
-
-        $sth = $this->conn->prepare('SELECT * FROM Eleve WHERE classe = ?');
+        $sth = $this->conn->prepare('SELECT nom_Eleve,prenom_Eleve,idEleve FROM Eleve WHERE classe = ?');
         $sth->bind_param('s', $classe);
         $sth->execute();
 
+        $result = $sth->get_result();
 
-        return $this->eleve($sth);
+
+        return $result;
     }
-
-    //méthode pour choisir une/des evaluation grâce à un nom
-    public function selectEleveByName(string $name)
+    
+    //méthode pour choisir une/des eleves non notés
+    public function selectEleveNonNoté(string $classe, int $idEvaluation)
     {
-
-        $sth = $this->conn->prepare('SELECT * FROM Eleve WHERE nom_Eleve = ?');
-        $sth->bind_param('s', $name);
-        $sth->execute();
-
-
-        return $this->eleve($sth);
-    }
-
-    public function selectEleveByFirstname(string $firstname)
-    {
-
-        $sth = $this->conn->prepare('SELECT * FROM Eleve WHERE prenom_Eleve = ?');
-        $sth->bind_param('s', $firstname);
-        $sth->execute();
-
-
-        return $this->eleve($sth);
-    }
-
-    public function selectEleveNonNoté(string $classe,int $idEvaluation)
-    {
-
         $sth = $this->conn->prepare('SELECT * from Eleve WHERE classe = ? AND idEleve NOT IN (SELECT idEleve FROM Note WHERE idEvaluation = ? )');
-        $sth->bind_param('si', $classe,$idEvaluation);
+        $sth->bind_param('si', $classe, $idEvaluation);
         $sth->execute();
-
 
         return $this->eleve($sth);
     }
 
-    public function selectEleveNoté(int $idEvaluation,string $classe)
+    //méthode pour choisir une/des eleves notés
+    public function selectEleveNoté(int $idEvaluation, string $classe)
     {
-
         $sth = $this->conn->prepare('SELECT nom_Eleve,prenom_Eleve,Eleve.idEleve,absence,resultat_Note FROM Eleve,Note WHERE idEvaluation= ? AND Note.idEleve=Eleve.idEleve AND Classe= ? ');
-        $sth->bind_param('is',$idEvaluation,$classe);
+        $sth->bind_param('is', $idEvaluation, $classe);
         $sth->execute();
-        
 
+        $result = $sth->get_result();
 
-        return $sth;
+        return $result;
+    }
+
+    //méthode pour une classe et son nombre d'élève
+    public function selectClassAndCountEleve()
+    {
+        $classe = array();
+
+        $req = "SELECT classe,COUNT(*) FROM Eleve GROUP BY classe";
+
+        $res = $this->conn->query($req);
+
+        while ($result = $res->fetch_row()) { // extrait chaque ligne une à une
+            array_push($classe, $result);
+        }
+
+        return $classe;
+    }
+
+    //méthode pour supprimer un élève grâce à son id
+    public function deleteEleve(int $idEleve)
+    {
+        $sth = $this->conn->prepare("DELETE FROM Eleve WHERE idEleve = ?");
+        $sth->bind_param('i', $idEleve);
+        $sth->execute();
     }
 
     private function eleve($sth)

@@ -19,7 +19,7 @@ CREATE TABLE Eleve
 
 CREATE TABLE Evaluation
 (
-    date_Evaluation          DATE,
+    date_Evaluation          DATE DEFAULT CURDATE(),
     nom_Evaluation           VARCHAR(20) NOT NULL UNIQUE,
 
     idEvaluation             INTEGER(150) NOT NULL AUTO_INCREMENT,
@@ -41,6 +41,8 @@ CREATE TABLE Note
     PRIMARY KEY (idNote)
 );
 
+/*
+
 INSERT INTO Eleve (nom_Eleve,prenom_Eleve,classe)
 VALUES
     ("DECHAPPE","GAETAN","SLAM"),
@@ -56,3 +58,17 @@ VALUES
     ("SOHIER","ENZO","SISR"),
     ("SAUVAGE","GUILLAUME","SISR"),
     ("TEST","TEST","TEST");
+
+*/
+
+INSERT INTO Eleve (nom_Eleve,prenom_Eleve,classe)
+VALUES
+    ("DECHAPPE","GAETAN","SLAM"),
+    ("NOM1","PRENOM1","SLAM"),
+    ("NOM2","PRENOM2","SLAM"),
+    ("NOM3","PRENOM3","SLAM"),
+    ("NOM4","PRENOM4","SLAM"),
+    ("NOM5","PRENOM5","SLAM"),
+    ("NOM6","PRENOM7","SLAM"),
+    ("NOM7","PRENOM7","SLAM"),
+    ("NOM8","PRENOM8","SLAM");

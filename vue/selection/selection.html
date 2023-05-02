@@ -14,9 +14,14 @@
 
   <header>
     <h1>Choix de la classe</h1>
+
+    <form method="get" action="" class="detail">
+      <input type="submit" value="Menu">
+    </form>
+    
   </header>
 
-  <form id="selection" method="post">
+  <form id="selection" action="?page=evaluation" method="post">
 
     <h2>Veuillez choisir une classe :</h2>
 
@@ -28,7 +33,6 @@
     <p>Nom de l'évaluation :</p>
     <input name="nom_evaluation" type="text" placeholder="Nom de l'évaluation" required>
 
-    <input type="hidden" name="page" value="evaluation">
     <input type="submit" value="Evaluer">
 
   </form>

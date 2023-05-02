@@ -23,9 +23,12 @@ class a_noter_controleur
 
     public function evaluer()
     {
-        if (isset($_POST["note"]) or ($_POST["presence"]=="absent")){
+        if (isset($_POST["presence"])) 
+        {
+            if (isset($_POST["note"]) or ($_POST["presence"] == "absent")) {
 
-            $this->table_note->createNote();
+                $this->table_note->createNote();
+            }
         }
     }
 
@@ -59,30 +62,31 @@ class a_noter_controleur
 
     public function tirage()
     {
-        
+
         $classe = $_SESSION["classe"];
-        $idEvaluation = $_SESSION["id"];
+        $idEvaluation = $_SESSION["id_evaluation"];
 
-        $table=$this->table_eleve->selectEleveNonNoté($classe,$idEvaluation);
+        $table = $this->table_eleve->selectEleveNonNoté($classe, $idEvaluation);
 
-        $nombre_eleve = sizeof($table);
-        $aléatoire = rand(1,$nombre_eleve);
+        $nombre_eleve = sizeof($table)-1;
+        $aléatoire = rand(0, $nombre_eleve);
         $eleve = $table[$aléatoire];
 
-        
-        $nom=$eleve->nom_Eleve;
-        $prenom=$eleve->prenom_Eleve;
-        $idEleve=$eleve->idEleve;
 
-        $this->page->replace_tirage($nom,$prenom,$idEleve);
+        $nom = $eleve->nom_Eleve;
+        $prenom = $eleve->prenom_Eleve;
+        $idEleve = $eleve->idEleve;
+
+        $this->page->replace_tirage($nom, $prenom, $idEleve);
+
     }
 
     public function eleve_noté()
     {
-        $idEvaluation = $_SESSION["id"];
+        $idEvaluation = $_SESSION["id_evaluation"];
         $classe = $_SESSION["classe"];
- 
-        $res=$this->table_eleve->selectEleveNoté($idEvaluation,$classe);
+
+        $res = $this->table_eleve->selectEleveNoté($idEvaluation, $classe);
 
 
         $this->page->replace_noté($res);
@@ -92,12 +96,13 @@ class a_noter_controleur
     public function eleve_pas_noté()
     {
         $classe = $_SESSION["classe"];
-        $idEvaluation = $_SESSION["id"];
+        $idEvaluation = $_SESSION["id_evaluation"];
 
 
-        $eleve=$this->table_eleve->selectEleveNonNoté($classe,$idEvaluation);
+        $eleve = $this->table_eleve->selectEleveNonNoté($classe, $idEvaluation);
 
         $this->page->replace_non_noté($eleve);
+
     }
 
     public function afficher()

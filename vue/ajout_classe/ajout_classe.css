@@ -1,0 +1,16 @@
+@import url(../general.css);
+
+h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.detail {
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

@@ -13,52 +13,49 @@ class detail_evaluation_vue
     }
 
     function replace_detail($res)
-    { {
-            $tbody = "";
+    {
+        $tbody = "";
 
-            foreach ($res as $ligne) { //créer le tableau des evaluations
+        foreach ($res as $ligne) { //créer le tableau des evaluations
 
-                $compteur = 0;
+            $compteur = 0;
 
 
-                $tbody = $tbody . "<tr>"; //début de la ligne
+            $tbody = $tbody . "<tr>"; //début de la ligne
 
-                foreach ($ligne as $colonne) {
+            foreach ($ligne as $colonne) {
 
-                    if ($compteur == 3) {
-                        if ($colonne == 1) 
-                        {
-                            $colonne = "Présent(e)";
-                        } 
-                        else 
-                        {
-                            $colonne = "Absent(e)";
-                        }
+                if ($compteur == 3) {
+                    if ($colonne == 1) {
+                        $colonne = "Présent(e)";
+                    } else {
+                        $colonne = "Absent(e)";
                     }
-
-                    $tbody = $tbody . "<td>" . $colonne . "</td>";
-
-                    
-                    $compteur++;
                 }
 
-                /*
-                $tbody = $tbody .
-                '<td>
-                <form method="post">
-                <button name="page" value="visualisation_eval">Voir</button>
-                <input type="text" name="id_evaluation" value="%id%" hidden="">
-                </form>
-                </td>
-                ';
-                $tbody = str_replace("%id%", $colonne, $tbody);//rajoute l'id de l'évaluation
-                */
+                $tbody = $tbody . "<td>" . $colonne . "</td>";
 
-                $tbody = $tbody . "</tr>"; //fin de la ligne
+
+                $compteur++;
             }
 
-            $this->file = str_replace("%detail%", $tbody, $this->file);
+            /*
+            $tbody = $tbody .
+            '<td>
+            <form method="post">
+            <button name="page" value="visualisation_eval">Voir</button>
+            <input type="text" name="id_evaluation" value="%id%" hidden="">
+            </form>
+            </td>
+            ';
+            $tbody = str_replace("%id%", $colonne, $tbody);//rajoute l'id de l'évaluation
+            */
+
+            $tbody = $tbody . "</tr>"; //fin de la ligne
         }
+
+        $this->file = str_replace("%detail%", $tbody, $this->file);
+
     }
 
 }

@@ -17,25 +17,24 @@
 
     </header>
 
-    <p>Date de l'évaluation :</p>
-    <p>%date%</p>
+    <div class="detail_eval">
+        <p>Date de l'évaluation :</p>
+        <p>%date%</p>
+    </div>
 
+    <div class="detail_eval">
+        <form method="post" action="?page=a_noter">
 
-    <form id="detail_eval" method="post">
+            <p>Classe :</p>
+            <input type="text" name="classe" value="%classe%" readonly>
+            <br>
 
-        <p>Classe :</p>
-        <input type="text" name="classe" value="%classe%" readonly>
-        <br>
+            <input type="hidden" name="nom_evaluation" type="text" value="%nom_eval%">
 
-        <input name="nom_evaluation" type="text" value="%nom_eval%" hidden>
+            <input type="submit" value="Tirer au sort">
 
-        <input type="text" name="id_evaluation" value="%id_evaluation%" hidden>
-
-        <input type="text" name="page" value="a_noter" hidden>
-
-        <input type="submit" value="Tirer au sort">
-
-    </form>
+        </form>
+    </div>
 
     <br>
     <br>

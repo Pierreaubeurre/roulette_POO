@@ -2,7 +2,9 @@
 
 require_once ("controleur/controleur_principal.php");
 
-//$_POST["page"]="evaluation";
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 new principal()
 

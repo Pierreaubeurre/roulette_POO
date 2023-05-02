@@ -5,25 +5,19 @@ h2 {
     justify-content: center;
 }
 
-.detail_eval{
-    display: flex;
-    justify-content: center;
-}
-
 #nom{
     font-size: large;
     margin: 5px;
 }
 
-.detail_eleve{
-    background-color: transparent;
-    border: 0px;
-    pointer-events: none;
-}
-
 .detail {
     display: flex;
     justify-content: center;
+}
+
+button{
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 table {
@@ -41,15 +35,4 @@ th {
 th,
 td {
     padding: 5px;
-}
-
-#separation{
-    margin-bottom: 20px;
-    margin-top: 20px;
-    border: 3px solid black;
-}
-
-.formulaire{
-    background-color: transparent;
-    border: none;
 }
