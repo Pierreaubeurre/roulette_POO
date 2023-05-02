@@ -9,9 +9,9 @@ class principal
         session_start();
 
         
-        if (isset($_POST["page"])) 
+        if (isset($_GET["page"])) 
         {
-            $page = $_POST["page"];
+            $page = $_GET["page"];
         }
         else
         {
@@ -28,7 +28,7 @@ class principal
                 $this->liste_evaluation();
                 break;
 
-            case "visualisation_eval": //Page affichant les détails de l'évaluation (élève,note...)
+            case "detail_eval": //Page affichant les détails de l'évaluation (élève,note...)
                 $this->detail_evaluation();
                 break;
 

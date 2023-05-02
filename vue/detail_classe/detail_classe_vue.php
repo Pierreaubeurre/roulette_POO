@@ -28,9 +28,10 @@ class detail_classe_vue
 
 
             $tbody = $tbody .
-            '<td>
+            '
+            <td>
                 <form method="post" action="?page=supprimer_eleve">
-                    <input type="submit" Supprimer>
+                    <input type="submit" value="Supprimer">
                     <input type="hidden" name="id_Eleve" value=%id%>
                 </form>
             </td>

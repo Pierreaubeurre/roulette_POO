@@ -39,17 +39,27 @@ class detail_evaluation_vue
                 $compteur++;
             }
 
-            /*
+            
             $tbody = $tbody .
             '<td>
             <form method="post">
-            <button name="page" value="visualisation_eval">Voir</button>
+            <button name="page" value="modification_note">Modifier</button>
             <input type="text" name="id_evaluation" value="%id%" hidden="">
             </form>
             </td>
             ';
+
+            $tbody = $tbody .
+            '<td>
+            <form method="post">
+            <button name="page" value="supprimer_note">Supprimer</button>
+            <input type="text" name="id_evaluation" value="%id%" hidden="">
+            </form>
+            </td>
+            ';
+
+
             $tbody = str_replace("%id%", $colonne, $tbody);//rajoute l'id de l'évaluation
-            */
 
             $tbody = $tbody . "</tr>"; //fin de la ligne
         }
